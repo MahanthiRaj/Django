@@ -48,3 +48,61 @@ step-10: Finally i ran the server to test the project locally
           python manage.py runserver
 
           http://127.0.0.1:8000/patients/
+step-11: created an HTML template under patients
+step-12: created a view function that renders an HTML page using Django -> template.loader
+
+          from django.template import loader
+
+          def patienthtml(request):
+              template = loader.get_template('patients.html')
+              return HttpResponse(template.render())
+step -12: Then connected the patienthtml view to a URL to get access the browser 
+
+          from patients.views import patienthtml
+          from django.urls import path
+          
+          urlpatterns = [
+                      path('patient/',patienthtml, name='patitent-html'),
+                    
+          ] 
+setp-13: Then we run the server to check the expected output
+step-14: created models in Django to store information about patients and doctors in the database. 
+          Django ORM helps turn these models into database tables automatically
+          
+          from django.db import models
+
+          class patients(models.Model):
+              firstname = models.CharField(max_length = 255)
+              lastname = models.CharField(max_length = 255)
+          
+          class doctors(models.Model):
+              firstname = models.CharField(max_length = 255)
+              lastname = models.CharField(max_length = 255)
+          
+
+step-15:Then we run this command 
+
+          python manage.py makemigrations
+
+          This tells Django to get ready to create the database tables
+
+step-16: Finally Django will check the models and it will create migration file 
+
+          class Migration(migrations.Migration):
+
+    initial = True
+
+    dependencies = [
+    ]
+
+    operations = [
+        migrations.CreateModel(
+            name='patients',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('firstname', models.CharField(max_length=255)),
+                ('lastname', models.CharField(max_length=255)),
+            ],
+        ),
+    ]
+
