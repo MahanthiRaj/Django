@@ -1,6 +1,6 @@
 # Django
 
-step-1 :created a repository named Health Project in Django to manage our source code.
+step-1 :created a repository named  Django.
 
 step-2: created a virtual environment using the following command
 
