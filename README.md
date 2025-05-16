@@ -1,15 +1,22 @@
 # Django
 
 step-1 :created a repository named Health Project in Django to manage our source code.
+
 step-2: created a virtual environment using the following command
+
           python -m venv env
+          
 step-3: activates the environment
+
           env\Scripts\activate
 step-4: after activation ,Installed Django
+
           pip install django
 step-5: created a Django project - Health
+
           django-admin startproject Health
 step-6: under Health project created a subapp - Patients:
+
           python manage.py startapp Patients
 step-7: Create Views in views.py
 
